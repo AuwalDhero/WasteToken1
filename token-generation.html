@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="script.js"></script>
+    <title>Token Generation</title>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="wasteToken example.html">Home</a></li>
+                <li><a href="token-generation.html">Token Generation</a></li>
+                <li><a href="token-redemption.html">Token Redemption</a></li>
+                <li><a href="waste-reporting.html">Waste Reporting</a></li>
+            </ul>
+        </nav>
+    </header>
+    <style>
+        /* Apply the background image to the body */
+        body {
+            background-image: url("img\ folder/400px");
+            background-size: cover; /* Adjust this as needed to control image sizing */
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Keeps the background image fixed as you scroll */
+            /* You can also set additional properties like background-position and background-color if needed */
+            color: white; /* Text color for better readability */
+            font-family: Arial, sans-serif;
+            background-color: bisque;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Token Generation</h1>
+    </header>
+    <main>
+        <!-- Add this inside the <main> section of your homepage -->
+            <!-- Add this inside the <main> section of your homepage -->
+        <section>
+            <h2>Welcome, <span id="user-name">Guest</span>!</h2>
+            <p>Your Token Balance: <span id="token-balance">0</span> tokens</p>
+        </section>
+        <section>
+            <h2>Generate Token</h2>
+            <form id="token-form">
+                <label for="waste-amount">Enter Waste Amount:</label>
+                <input type="number" id="waste-amount" name="waste-amount" required>
+                <button onclick="generateTokens()">Generate Tokens</button>
+            </form>
+            <div id="token-result">
+                <p>Your generated token: <span id="generated-token"></span></p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Waste Collection Platform</p>
+    </footer>
+    
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Token Redemption</title>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="wasteToken example.html">Home</a></li>
+                <li><a href="token-generation.html">Token Generation</a></li>
+                <li><a href="token-redemption.html">Token Redemption</a></li>
+                <li><a href="waste-reporting.html">Waste Reporting</a></li>
+            </ul>
+        </nav>
+        <h1>Waste Collection Platform</h1>
+    </header>
+    <style>
+        /* Apply the styles to the entire body */
+body {
+  background-color: rgb(236, 233, 233);
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* Center the header */
+header {
+  margin-top: 20px;
+}
+
+/* Center the main content */
+main {
+  padding: 20px;
+}
+
+/* Center the form and its elements */
+#redemption-form {
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+label,
+input,
+button {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Center the redemption result */
+#redemption-result {
+  display: none;
+  margin-top: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Token Redemption</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Redeem Tokens</h2>
+            <form id="redemption-form">
+                <label for="tokens-to-redeem">Tokens to Redeem:</label>
+                <input type="number" id="tokens-to-redeem" name="tokens-to-redeem" required>
+                <button type="button" id="redeem-button">Redeem</button>
+            </form>
+            <div id="redemption-result">
+                <p>Redemption status: <span id="TokenRedemtion"></span></p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Waste Collection Platform</p>
+    </footer>
+    <script>
+        document.getElementById("redeem-button").addEventListener("click", function() {
+            var tokensToRedeem = parseInt(document.getElementById("tokens-to-redeem").value);
+            if (!isNaN(tokensToRedeem) && tokensToRedeem > 0) {
+                fetch("/redeem-tokens", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ tokensToRedeem }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("redemption-status").textContent = data.message;
+                    document.getElementById("redemption-result").style.display = "block";
+                })
+                .catch(error => console.error(error));
+            }
+        });
+    </script>
+</body>
+</html>
